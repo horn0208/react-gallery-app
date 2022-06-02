@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+//import components
+import Body from '../Body/Body';
+
 
 function App() {
     return (
@@ -9,6 +12,7 @@ function App() {
         </header>
         <p>Gallery goes here</p>
         <img src="images/goat_small.jpg"/>
+        <Body testProp='thing'/>
       </div>
     );
 }
