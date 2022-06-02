@@ -5,14 +5,12 @@ function GalleryList(props){
     //template hook
     const [hook, setHook] = useState(null);
 
-    // TODO-- map through gallery array
-    // TODO--Create a GalleryItem for each in array
-
     return(
         <div>
             <h2>GalleryList</h2>
-            <p>Props: {JSON.stringify(props)}</p>
-            <GalleryItem />
+            {/* map through photos and create gallery item for each photo in array */}
+            {props.photos.map(photo=>(<GalleryItem photo={photo}/>))}
+            
         </div>
     );
 }

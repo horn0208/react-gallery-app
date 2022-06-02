@@ -20,13 +20,13 @@ function Body(props){
         })
     }
 
-    //TODO--Send response to GalleryList as prop
+    //Send response to GalleryList as prop
 
     return(
         <div>
             <h2>Body</h2>
             <p>Props: {JSON.stringify(props)}</p>
-            <GalleryList photoArray={photos}/>
+            <GalleryList photos={photos}/>
         </div>
     );
 }
