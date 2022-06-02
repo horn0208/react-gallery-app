@@ -1,10 +1,19 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import GalleryList from '../GalleryList/GalleryList';
 
 function Body(props){
     //template hook
-    const [hook, setHook] = useState(null);
+    const [photos, setPhotos] = useState([]);
     //TODO--Make GET call on page load
+    useEffect(()=>{
+        getPhotos();
+    }, []); //empty array makes this run only once
+    const getPhotos=()=>{
+        setPhotos(
+            [{
+                futurePic: 'testing'
+            }]);
+    }
 
     //TODO--Send response to GalleryList as prop
 
@@ -12,7 +21,7 @@ function Body(props){
         <div>
             <h2>Body</h2>
             <p>Props: {JSON.stringify(props)}</p>
-            <GalleryList />
+            <GalleryList photoArray={photos}/>
         </div>
     );
 }
