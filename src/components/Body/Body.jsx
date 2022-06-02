@@ -5,7 +5,7 @@ import axios from 'axios';
 function Body(props){
     //template hook
     const [photos, setPhotos] = useState([]);
-    //TODO--Make GET call on page load
+    //Make GET call on page load
     useEffect(()=>{
         getPhotos();
     }, []); //empty array makes this run only once
@@ -25,7 +25,6 @@ function Body(props){
     return(
         <div>
             <h2>Body</h2>
-            <p>Props: {JSON.stringify(props)}</p>
             <GalleryList photos={photos}/>
         </div>
     );
