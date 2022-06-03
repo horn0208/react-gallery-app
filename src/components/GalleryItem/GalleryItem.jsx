@@ -1,10 +1,16 @@
 import axios from 'axios';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function GalleryItem(props){
     //click to toggle content (hook)
     const [show, setShow] = useState(true);
     const [like, setLike] = useState(0);
+
+    // useEffect to console log after like is updated:
+    useEffect(()=>{
+        console.log(like);
+    },[like]);
+
     //swap image with description on click using conditional rendering
     const toggleShow =()=>{
         setShow(!show);
@@ -12,7 +18,6 @@ function GalleryItem(props){
 
     const countLike =()=>{
         setLike(like+1);
-        console.log(like);
         //TODO--like button click: use axios to 'PUT' the like count /gallery/like/:id
         axios.put('/gallery/like/:id').then((response)=>{
             console.log(response.data);
@@ -22,12 +27,9 @@ function GalleryItem(props){
         })
     }
 
-    //TODO--update gallery each time like button is clicked (GET)
-
     return(
         <div>
-            <h2>GalleryItem</h2>
-            <p>Props: {JSON.stringify(props)}</p>
+            <h2>{props.photo.title}</h2>
             <div onClick={toggleShow}>
                 {
                     show?
@@ -36,7 +38,10 @@ function GalleryItem(props){
                     <p>{props.photo.description}</p>
                 }
             </div>
-            <button onClick={countLike}>Like</button>
+            <div>
+                <button onClick={countLike}>Like</button>
+                <p>Likes: {like}</p>
+            </div>
         </div>
     );
 }
