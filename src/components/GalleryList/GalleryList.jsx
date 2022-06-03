@@ -7,7 +7,6 @@ function GalleryList(props){
 
     return(
         <div>
-            <h2>GalleryList</h2>
             {/* map through photos and create gallery item for each photo in array */}
             {props.photos.map(photo=>(<GalleryItem photo={photo}/>))}
             
