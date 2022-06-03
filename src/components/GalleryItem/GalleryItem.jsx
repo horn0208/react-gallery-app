@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useState} from 'react';
 
 function GalleryItem(props){
@@ -8,13 +9,20 @@ function GalleryItem(props){
     const toggleShow =()=>{
         setShow(!show);
     }
-    //TODO--like button click: use axios to 'PUT' the like count /gallery/like/:id
-    //TODO--update gallery each time like button is clicked (GET)
+
     const countLike =()=>{
         setLike(like+1);
         console.log(like);
+        //TODO--like button click: use axios to 'PUT' the like count /gallery/like/:id
+        axios.put('/gallery/like/:id').then((response)=>{
+            console.log(response.data);
+        }).catch((err)=>{
+            console.log(err);
+            alert('error saving like');
+        })
     }
 
+    //TODO--update gallery each time like button is clicked (GET)
 
     return(
         <div>
