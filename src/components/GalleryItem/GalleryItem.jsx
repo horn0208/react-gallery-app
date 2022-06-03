@@ -41,7 +41,7 @@ function GalleryItem(props){
             </div>
             <div>
                 <button onClick={countLike}>Like</button>
-                <p>Likes: {like}</p>
+                <p>Likes: {props.photo.likes}</p>
             </div>
         </div>
     );

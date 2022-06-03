@@ -24,7 +24,7 @@ function Body(props){
 
     return(
         <div>
-            <GalleryList photos={photos}/>
+            <GalleryList photos={photos} />
         </div>
     );
 }
