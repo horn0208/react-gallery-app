@@ -18,8 +18,9 @@ function GalleryItem(props){
 
     const countLike =()=>{
         setLike(like+1);
+        console.log('props id in countLike:', props.photo.id);
         //TODO--like button click: use axios to 'PUT' the like count /gallery/like/:id
-        axios.put('/gallery/like/:id').then((response)=>{
+        axios.put(`/gallery/like?id=${props.photo.id}`).then((response)=>{
             console.log(response.data);
         }).catch((err)=>{
             console.log(err);

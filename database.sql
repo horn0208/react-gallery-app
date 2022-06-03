@@ -14,4 +14,6 @@ VALUES
 	('images/moto.jpeg', 'Cat Ba Island, Vietnam', 'Motorbike rides with Pi on Cat Ba Island, Vietnam', 0),
 	('images/palisade.jpg', 'Palisade Head, MN', 'Rachelle climbing at Palisade Head, before we got the first female ascents of Oz.', 0);
 
-SELECT * FROM gallery;
+SELECT * FROM gallery ORDER BY id ASC;
+-- to update like count:
+UPDATE gallery SET likes = likes + 1 WHERE id=1;
