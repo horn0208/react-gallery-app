@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import GalleryList from '../GalleryList/GalleryList';
+import Form from '../Form/Form';
 import axios from 'axios';
 
 function Body(props){
@@ -25,6 +26,7 @@ function Body(props){
     return(
         <div>
             <GalleryList photos={photos} getPhotos={getPhotos}/>
+            <Form />
         </div>
     );
 }
