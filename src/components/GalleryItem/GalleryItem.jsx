@@ -1,5 +1,8 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Button from '@mui/material/Button';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function GalleryItem({photo, getPhotos}){
     //click to toggle content (hook)
@@ -56,9 +59,21 @@ function GalleryItem({photo, getPhotos}){
                 }
             </div>
             <div>
-                <button onClick={countLike}>Like</button>
+                <Button 
+                    variant='contained'
+                    color='primary'
+                    startIcon={<FavoriteIcon />}
+                    onClick={countLike}>
+                    Like
+                </Button>
                 <p>Likes: {photo.likes}</p>
-                <button onClick={deletePic}>Delete</button>
+                <Button 
+                    variant='outlined'
+                    color='primary'
+                    startIcon={<DeleteForeverIcon />}
+                    onClick={deletePic}>
+                    Delete
+                </Button>
             </div>
         </div>
     );
