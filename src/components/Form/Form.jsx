@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import axios from 'axios';
 
 function Form({getPhotos}){
     // hooks
@@ -17,15 +18,26 @@ function Form({getPhotos}){
         setNewDescription(event.target.value);
     }
 
-    // collect submitted info in an object once Submit is clicked
+    // once Submit is clicked, send gallery item data to database:
     const addPhoto=()=>{
         console.log('in addPhoto:', newUrl, newTitle, newDescription);
-        let newGalleryItem = {
-            path: newUrl,
-            title: newTitle,
-            description: newDescription
-        }
-    }
+        axios({
+            method: 'POST',
+            url: '/gallery',
+            data: {
+                path: newUrl,
+                title: newTitle,
+                description: newDescription
+            }
+        }).then((response)=>{
+            console.log(response);
+        }).catch((err)=>{
+            console.log(err);
+            alert('error posting photo');
+        })
+        //display current photo gallery
+
+    };
 
     return(
         <div>
