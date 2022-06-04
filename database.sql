@@ -5,6 +5,9 @@ CREATE TABLE gallery(
 	"description" varchar(150),
 	"likes" integer
 )
+--updating table to set default value of likes to 0:
+ALTER TABLE gallery ALTER COLUMN likes SET DEFAULT 0;
+
 INSERT INTO gallery (path, title, description, likes)
 VALUES
 	('images/vietnam.jpeg', 'Con Dao Island, Vietnam', 'On a beach in Vietnam, a few days before Pi proposed.', 0),
@@ -19,3 +22,4 @@ SELECT * FROM gallery ORDER BY id ASC;
 UPDATE gallery SET likes = likes + 1 WHERE id=1;
 
 DELETE FROM gallery WHERE id=1;
+

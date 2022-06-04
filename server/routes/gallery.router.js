@@ -59,6 +59,19 @@ router.delete('/delete', (req, res)=>{
         console.log(err);
         res.sendStatus(500);
     })
-})
+});
+
+// POST route to database:
+router.post('/', (req, res)=>{
+    console.log('in router POST:', req.body);
+    const queryString = `INSERT INTO gallery (path, title, description) VALUES($1, $2, $3);`;
+    const values = [req.body.path, req.body.title, req.body.description];
+    pool.query(queryString, values).then((result)=>{
+        res.sendStatus(201);
+    }).catch((err)=>{
+        console.log(err);
+        res.sendStatus(500);
+    })
+});
 
 module.exports = router;
