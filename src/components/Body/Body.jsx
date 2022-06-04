@@ -26,7 +26,7 @@ function Body(props){
     return(
         <div>
             <GalleryList photos={photos} getPhotos={getPhotos}/>
-            <Form />
+            <Form getPhotos={getPhotos}/>
         </div>
     );
 }
