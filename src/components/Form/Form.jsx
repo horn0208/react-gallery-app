@@ -31,12 +31,12 @@ function Form({getPhotos}){
             }
         }).then((response)=>{
             console.log(response);
+            //display current photo gallery
+            getPhotos();
         }).catch((err)=>{
             console.log(err);
             alert('error posting photo');
         })
-        //display current photo gallery
-
     };
 
     return(
