@@ -10,13 +10,13 @@ function Form({getPhotos}){
     // store form inputs
     const addUrl=()=>{
         setNewUrl(event.target.value);
-    }
+    };
     const addTitle=()=>{
         setNewTitle(event.target.value);
-    }
+    };
     const addDescription=()=>{
         setNewDescription(event.target.value);
-    }
+    };
 
     // once Submit is clicked, send gallery item data to database:
     const addPhoto=()=>{
@@ -33,18 +33,26 @@ function Form({getPhotos}){
             console.log(response);
             //display current photo gallery
             getPhotos();
+            clearInputs();
         }).catch((err)=>{
             console.log(err);
             alert('error posting photo');
         })
     };
 
+    // clear inputs--Why doesn't this work???
+    const clearInputs =()=>{
+        setNewUrl('');
+        setNewTitle('');
+        setNewDescription('');
+    };
+
     return(
         <div>
             <h2>Add Gallery Item</h2>
-            <input onChange={addUrl} type="text" placeholder='Image URL' />
-            <input onChange={addTitle} type="text" placeholder='Title'/>
-            <input onChange={addDescription} type="text" placeholder='Description'/>
+            <input value={newUrl} onChange={addUrl} type="text" placeholder='Image URL' />
+            <input value={newTitle} onChange={addTitle} type="text" placeholder='Title'/>
+            <input value={newDescription} onChange={addDescription} type="text" placeholder='Description'/>
             <button onClick={addPhoto}>Submit</button>
         </div>
     );
