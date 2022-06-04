@@ -17,3 +17,5 @@ VALUES
 SELECT * FROM gallery ORDER BY id ASC;
 -- to update like count:
 UPDATE gallery SET likes = likes + 1 WHERE id=1;
+
+DELETE FROM gallery WHERE id=1;
