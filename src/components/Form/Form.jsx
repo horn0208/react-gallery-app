@@ -40,7 +40,7 @@ function Form({getPhotos}){
         })
     };
 
-    // clear inputs--Why doesn't this work???
+    // clear input fields and values
     const clearInputs =()=>{
         setNewUrl('');
         setNewTitle('');
