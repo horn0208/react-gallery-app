@@ -1,0 +1,29 @@
+.photo-box{
+    width: 680px;
+    height: 800px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.buttons-wrap{
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+    align-items: center;
+    width: 640px;
+    height: 32px;
+    justify-content:space-between;
+}
+
+.description{
+    height: 640px;
+    width: 640px;
+    text-align: center;
+    vertical-align: middle;
+    border: solid black 1px;
+    padding-top: 30px;
+}
