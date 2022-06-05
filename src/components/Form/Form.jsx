@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import TextField from '@mui/material/TextField';
+import './Form.css'
 
 
 function Form({getPhotos}){
@@ -54,37 +55,39 @@ function Form({getPhotos}){
     return(
         <div>
             <h2>Add Gallery Item</h2>
-            <TextField 
-                variant='outlined'
-                size='small'
-                color='primary' 
-                value={newUrl} 
-                onChange={addUrl} 
-                type="text" 
-                label='Image URL' />
-            <TextField
-                variant='outlined'
-                size='small'
-                color='primary' 
-                value={newTitle} 
-                onChange={addTitle} 
-                type="text" 
-                label='Title'/>
-            <TextField 
-                variant='outlined'
-                size='small'
-                color='primary' 
-                value={newDescription} 
-                onChange={addDescription} 
-                type="text" 
-                label='Description'/>
-            <Button 
-                variant="contained"
-                color='primary'
-                endIcon={<ArrowCircleUpIcon />}
-                onClick={addPhoto}>
-                Submit
-            </Button>
+            <div className='form-box'>
+                <TextField 
+                    variant='outlined'
+                    size='small'
+                    color='secondary' 
+                    value={newUrl} 
+                    onChange={addUrl} 
+                    type="text" 
+                    label='Image URL' />
+                <TextField
+                    variant='outlined'
+                    size='small'
+                    color='secondary' 
+                    value={newTitle} 
+                    onChange={addTitle} 
+                    type="text" 
+                    label='Title'/>
+                <TextField 
+                    variant='outlined'
+                    size='small'
+                    color='secondary' 
+                    value={newDescription} 
+                    onChange={addDescription} 
+                    type="text" 
+                    label='Description'/>
+                <Button 
+                    variant="contained"
+                    color='secondary'
+                    endIcon={<ArrowCircleUpIcon />}
+                    onClick={addPhoto}>
+                    Submit
+                </Button>
+            </div>
         </div>
     );
 }

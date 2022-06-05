@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import './GalleryItem.css'
+
 
 function GalleryItem({photo, getPhotos}){
     //click to toggle content (hook)
@@ -48,28 +50,30 @@ function GalleryItem({photo, getPhotos}){
     }
 
     return(
-        <div>
+        <div className='photo-box'>
             <h2>{photo.title}</h2>
             <div onClick={toggleShow}>
                 {
                     show?
                     <img src={photo.path}/>
                     :
-                    <p>{photo.description}</p>
+                    <h3 className='description'>{photo.description}</h3>
                 }
             </div>
-            <div>
+            <div className='buttons-wrap'>
                 <Button 
                     variant='contained'
-                    color='primary'
+                    color='secondary'
+                    size='small'
                     startIcon={<FavoriteIcon />}
                     onClick={countLike}>
                     Like
                 </Button>
-                <p>Likes: {photo.likes}</p>
+                <h4>Likes: {photo.likes}</h4>
                 <Button 
-                    variant='outlined'
-                    color='primary'
+                    variant='contained'
+                    color='secondary'
+                    size='small'
                     startIcon={<DeleteForeverIcon />}
                     onClick={deletePic}>
                     Delete
