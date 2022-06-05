@@ -1,8 +1,8 @@
 CREATE TABLE gallery(
 	"id" SERIAL PRIMARY KEY,
-	"path" varchar(50),
+	"path" varchar(200),
 	"title" varchar(50),
-	"description" varchar(150),
+	"description" varchar(250),
 	"likes" integer
 )
 --updating table to set default value of likes to 0:
